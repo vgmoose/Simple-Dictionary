@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 @end
 
 @implementation ViewController
@@ -18,6 +18,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
+- (IBAction)goPress:(id)sender {
+    if ([UIReferenceLibraryViewController dictionaryHasDefinitionForTerm:_textField.text]) {
+        UIReferenceLibraryViewController* ref =
+        [[UIReferenceLibraryViewController alloc] initWithTerm:_textField.text];
+        [self presentViewController:ref animated:YES completion:nil];
+    }
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
