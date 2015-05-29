@@ -19,11 +19,16 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)goPress:(id)sender {
+    UIReferenceLibraryViewController* ref;
+    
     if ([UIReferenceLibraryViewController dictionaryHasDefinitionForTerm:_textField.text]) {
-        UIReferenceLibraryViewController* ref =
+        ref =
         [[UIReferenceLibraryViewController alloc] initWithTerm:_textField.text];
-        [self presentViewController:ref animated:YES completion:nil];
+    } else {
+        ref =
+        [[UIReferenceLibraryViewController alloc] initWithTerm:@"undefined"];
     }
+    [self presentViewController:ref animated:YES completion:nil];
 }
 
 
