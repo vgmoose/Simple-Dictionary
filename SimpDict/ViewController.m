@@ -20,15 +20,8 @@
     [_textField becomeFirstResponder];
 }
 - (IBAction)goPress:(id)sender {
-    UIReferenceLibraryViewController* ref;
+    UIReferenceLibraryViewController* ref = [[UIReferenceLibraryViewController alloc] initWithTerm:_textField.text];
     
-    if ([UIReferenceLibraryViewController dictionaryHasDefinitionForTerm:_textField.text]) {
-        ref =
-        [[UIReferenceLibraryViewController alloc] initWithTerm:_textField.text];
-    } else {
-        ref =
-        [[UIReferenceLibraryViewController alloc] initWithTerm:@"undefined"];
-    }
     [self presentViewController:ref animated:YES completion:nil];
 }
 
